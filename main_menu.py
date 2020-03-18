@@ -359,7 +359,8 @@ class EllipseWindow(QWidget):
         except:
             QMessageBox.warning(self, "Error", "The value/s must be a numerical!", QMessageBox.Ok, QMessageBox.Ok)
         else:
-            if self.b > self.a:
+            print(self.a,self.b)
+            if self.a > self.b:
                 c = ((self.b)**2 - (self.a)**2)**(1/2)
                 center = (self.h,self.k)
                 focus1 = (self.h,self.k+c)
@@ -375,14 +376,14 @@ class EllipseWindow(QWidget):
                 endpt2LRB = (self.h+lr2,self.k-lr2)
                 eccentricity = c/self.a
             else:
-                QMessageBox.warning(self, "Error", "Value of B must be greater than A", QMessageBox.Ok, QMessageBox.Ok)
+                QMessageBox.warning(self, "Error", "Value of A must be greater than B", QMessageBox.Ok, QMessageBox.Ok)
 
     def graphEllipseYMaj(self):
         try:
             if self.a > self.b:
-                ellipseYmaj(self.a,self.b,self.h,self.k)
+                ellipseYmaj(self.b,self.a,self.h,self.k)
             else:
-                QMessageBox.warning(self, "Error", "Value of B must be greater than A", QMessageBox.Ok, QMessageBox.Ok)
+                QMessageBox.warning(self, "Error", "Value of A must be greater than B", QMessageBox.Ok, QMessageBox.Ok)
         except:
             QMessageBox.warning(self, "Error", "Press calculate before viewing the graph!", QMessageBox.Ok, QMessageBox.Ok)
     
@@ -465,7 +466,7 @@ class HyperbolaWindow(QWidget):
         except:
             QMessageBox.warning(self, "Error", "The value/s must be a numerical!", QMessageBox.Ok, QMessageBox.Ok)
         else:
-            if self.a >= self.b:
+            if self.a > self.b:
                 c = ((self.b**2)+(self.a**2))**(1/2)
                 center = (self.h,self.k)
                 focus1 = (self.h,self.k+c)
@@ -493,7 +494,7 @@ class HyperbolaWindow(QWidget):
         except:
             QMessageBox.warning(self, "Error", "The value/s must be a numerical!", QMessageBox.Ok, QMessageBox.Ok)
         else:
-            if self.b >= self.a:
+            if self.a >= self.b:
                 c = ((self.b**2)+(self.a**2))**(1/2)
                 center = (self.h,self.k)
                 focus1 = (self.h+c,self.k)
@@ -501,14 +502,14 @@ class HyperbolaWindow(QWidget):
                 vertex1 = (self.h+self.a,self.k)
                 vertex2 = (self.h-self.a,self.k)
             else:
-                QMessageBox.warning(self, "Error", "The value of B must be greater than A", QMessageBox.Ok, QMessageBox.Ok)
+                QMessageBox.warning(self, "Error", "The value of A must be greater than B", QMessageBox.Ok, QMessageBox.Ok)
 
     def graphHyperbolaYmaj(self):
         try:
-            if self.b > self.a:
+            if self.a > self.b:
                 hyperbolaYmaj(self.a,self.b,self.h,self.k)
             else:
-                QMessageBox.warning(self, "Error", "The value of B must be greater than A", QMessageBox.Ok, QMessageBox.Ok)
+                QMessageBox.warning(self, "Error", "The value of A must be greater than B", QMessageBox.Ok, QMessageBox.Ok)
         except:
             QMessageBox.warning(self, "Error", "Press calculate before viewing the graph!", QMessageBox.Ok, QMessageBox.Ok)
 
